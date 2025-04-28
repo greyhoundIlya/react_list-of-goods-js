@@ -43,11 +43,11 @@ function getSortInfo(goods, { sortField, isRevesed }) {
 
 export const App = () => {
   const [sortField, setSortField] = useState('');
-  const [isRevesed, setIsRevesed] = useState(false);
+  const [isReversed, setIsRevesed] = useState(false);
 
   const start = getSortInfo(goodsFromServer, {
     sortField,
-    isRevesed,
+    isRevesed: isReversed,
   });
 
   const reset = () => {
@@ -63,7 +63,7 @@ export const App = () => {
             setSortField(SORT_FIELD_ALF);
           }}
           type="button"
-          className={`button is-info ${sortField !== SORT_FIELD_ALF ? 'is-ligth' : ''} `}
+          className={`button is-info ${sortField !== SORT_FIELD_ALF ? 'is-light' : ''} `}
         >
           Sort alphabetically
         </button>
@@ -71,20 +71,20 @@ export const App = () => {
         <button
           onClick={() => setSortField(SORT_FIELD_LENGTH)}
           type="button"
-          className={`button is-success ${sortField !== SORT_FIELD_LENGTH ? 'is-ligth' : ''}`}
+          className={`button is-success ${sortField !== SORT_FIELD_LENGTH ? 'is-light' : ''}`}
         >
           Sort by length
         </button>
 
         <button
-          onClick={() => setIsRevesed(!isRevesed)}
+          onClick={() => setIsRevesed(!isReversed)}
           type="button"
-          className={`button is-warning ${isRevesed ? '' : 'is-light'}`}
+          className={`button is-warning ${isReversed ? '' : 'is-light'}`}
         >
           Reverse
         </button>
 
-        {sortField || isRevesed ? (
+        {sortField || isReversed ? (
           <button
             onClick={reset}
             type="button"
