@@ -90,7 +90,7 @@ export const App = () => {
             type="button"
             className="button is-warning is-light"
           >
-            Reverse
+            Reset
           </button>
         ) : null}
       </div>
